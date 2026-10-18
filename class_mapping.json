@@ -1,0 +1,31 @@
+{
+  "description": "Correspondance WildReceipt (class_list.txt) vers receipt.schema.json. role: value = valeur à extraire; key = libellé imprimé (sert de preuve, jamais de valeur); ignore = non utilisé. policy: join = concaténer les zones dans l'ordre de lecture (haut vers bas, gauche vers droite); any_of = garder la première valeur comme référence et les autres comme alternatives acceptées; per_item = une valeur par ligne d'article.",
+  "classes": {
+    "0":  { "name": "Ignore",              "role": "ignore" },
+    "1":  { "name": "Store_name_value",    "role": "value", "field": "merchant.name",    "policy": "any_of" },
+    "2":  { "name": "Store_name_key",      "role": "key",   "field": "merchant.name" },
+    "3":  { "name": "Store_addr_value",    "role": "value", "field": "merchant.address", "policy": "join" },
+    "4":  { "name": "Store_addr_key",      "role": "key",   "field": "merchant.address" },
+    "5":  { "name": "Tel_value",           "role": "value", "field": "merchant.phone",   "policy": "any_of" },
+    "6":  { "name": "Tel_key",             "role": "key",   "field": "merchant.phone" },
+    "7":  { "name": "Date_value",          "role": "value", "field": "date",             "policy": "any_of" },
+    "8":  { "name": "Date_key",            "role": "key",   "field": "date" },
+    "9":  { "name": "Time_value",          "role": "value", "field": "time",             "policy": "any_of" },
+    "10": { "name": "Time_key",            "role": "key",   "field": "time" },
+    "11": { "name": "Prod_item_value",     "role": "value", "field": "items[].description", "policy": "per_item" },
+    "12": { "name": "Prod_item_key",       "role": "key",   "field": "items[].description" },
+    "13": { "name": "Prod_quantity_value", "role": "value", "field": "items[].quantity",    "policy": "per_item" },
+    "14": { "name": "Prod_quantity_key",   "role": "key",   "field": "items[].quantity" },
+    "15": { "name": "Prod_price_value",    "role": "value", "field": "items[].price",       "policy": "per_item" },
+    "16": { "name": "Prod_price_key",      "role": "key",   "field": "items[].price" },
+    "17": { "name": "Subtotal_value",      "role": "value", "field": "amounts.subtotal", "policy": "any_of" },
+    "18": { "name": "Subtotal_key",        "role": "key",   "field": "amounts.subtotal" },
+    "19": { "name": "Tax_value",           "role": "value", "field": "amounts.tax",      "policy": "any_of" },
+    "20": { "name": "Tax_key",             "role": "key",   "field": "amounts.tax" },
+    "21": { "name": "Tips_value",          "role": "value", "field": "amounts.tip",      "policy": "any_of" },
+    "22": { "name": "Tips_key",            "role": "key",   "field": "amounts.tip" },
+    "23": { "name": "Total_value",         "role": "value", "field": "amounts.total",    "policy": "any_of" },
+    "24": { "name": "Total_key",           "role": "key",   "field": "amounts.total" },
+    "25": { "name": "Others",              "role": "ignore" }
+  }
+}
